@@ -1,11 +1,15 @@
-﻿namespace ssapj.BarTenderSampleActivexCSharp
+﻿using System.Windows.Forms;
+using System.ComponentModel;
+using System.Drawing;
+
+namespace ssapj.BarTenderSampleActivexCSharp
 {
     partial class Form1
     {
         /// <summary>
         /// 必要なデザイナー変数です。
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// 使用中のリソースをすべてクリーンアップします。
@@ -28,266 +32,270 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.CkSeagull = new System.Windows.Forms.CheckBox();
-            this.Label6 = new System.Windows.Forms.Label();
-            this.CkEmphasis = new System.Windows.Forms.CheckBox();
-            this.Label5 = new System.Windows.Forms.Label();
-            this.Label4 = new System.Windows.Forms.Label();
-            this.Label3 = new System.Windows.Forms.Label();
-            this.Label2 = new System.Windows.Forms.Label();
-            this.Label1 = new System.Windows.Forms.Label();
-            this.SetValue = new System.Windows.Forms.Button();
-            this.ImagePreview = new System.Windows.Forms.Button();
-            this.PictureBox1 = new System.Windows.Forms.PictureBox();
-            this.PrinterList = new System.Windows.Forms.ComboBox();
-            this.SelectCSV = new System.Windows.Forms.Button();
-            this.databaseFilePath = new System.Windows.Forms.TextBox();
-            this.OpenFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.BtPreviw = new System.Windows.Forms.Button();
-            this.TextBox1 = new System.Windows.Forms.TextBox();
-            this.ActualPrint = new System.Windows.Forms.Button();
-            this.SelectBTW = new System.Windows.Forms.Button();
-            this.btwFilePath = new System.Windows.Forms.TextBox();
-            this.NSL = new System.Windows.Forms.NumericUpDown();
-            this.ICOL = new System.Windows.Forms.NumericUpDown();
-            this.cutNum = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NSL)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ICOL)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cutNum)).BeginInit();
+            this.ButtonSelectBtwFile = new Button();
+            this.ButtonSelectCsvFile = new Button();
+            this.CheckBoxIsDriverBySeagull = new CheckBox();
+            this.CheckBoxIsDesignObjectEmphasis = new CheckBox();
+            this.Label6 = new Label();
+            this.Label5 = new Label();
+            this.Label4 = new Label();
+            this.Label3 = new Label();
+            this.Label2 = new Label();
+            this.Label1 = new Label();
+            this.ButtonOpenBtwFileAndSetValue = new Button();
+            this.ButtonShowImagePreview = new Button();
+            this.ButtonShowPreviewDialog = new Button();
+            this.ButtonExportPrintPreview = new Button();
+            this.PictureBoxShowPreviewOfBartender = new PictureBox();
+            this.ComboBoxPrintersList = new ComboBox();
+            this.TextBoxBtwFilePath = new TextBox();
+            this.TextBoxCsvFilePath = new TextBox();
+            this.OpenFileDialog1 = new OpenFileDialog();
+            this.TextBoxNamedSubString = new TextBox();
+            this.ButtonPrint = new Button();
+            this.NumericUpDownNumberSerializedLabels = new NumericUpDown();
+            this.NumericUpDownIdenticalCopiesOfLabel = new NumericUpDown();
+            this.NumericUpDownCutInterval = new NumericUpDown();
+            ((ISupportInitialize)(this.PictureBoxShowPreviewOfBartender)).BeginInit();
+            ((ISupportInitialize)(this.NumericUpDownNumberSerializedLabels)).BeginInit();
+            ((ISupportInitialize)(this.NumericUpDownIdenticalCopiesOfLabel)).BeginInit();
+            ((ISupportInitialize)(this.NumericUpDownCutInterval)).BeginInit();
             this.SuspendLayout();
             // 
-            // CkSeagull
+            // ButtonSelectBtwFile
             // 
-            this.CkSeagull.AutoSize = true;
-            this.CkSeagull.Location = new System.Drawing.Point(245, 205);
-            this.CkSeagull.Name = "CkSeagull";
-            this.CkSeagull.Size = new System.Drawing.Size(96, 16);
-            this.CkSeagull.TabIndex = 39;
-            this.CkSeagull.Text = "Seagull Driver";
-            this.CkSeagull.UseVisualStyleBackColor = true;
+            this.ButtonSelectBtwFile.Location = new Point(248, 7);
+            this.ButtonSelectBtwFile.Name = "ButtonSelectBtwFile";
+            this.ButtonSelectBtwFile.Size = new Size(56, 23);
+            this.ButtonSelectBtwFile.TabIndex = 41;
+            this.ButtonSelectBtwFile.Text = "BTW";
+            this.ButtonSelectBtwFile.UseVisualStyleBackColor = true;
+            // 
+            // ButtonSelectCsvFile
+            // 
+            this.ButtonSelectCsvFile.Location = new Point(248, 35);
+            this.ButtonSelectCsvFile.Name = "ButtonSelectCsvFile";
+            this.ButtonSelectCsvFile.Size = new Size(56, 23);
+            this.ButtonSelectCsvFile.TabIndex = 23;
+            this.ButtonSelectCsvFile.Text = "CSV";
+            this.ButtonSelectCsvFile.UseVisualStyleBackColor = true;
+            // 
+            // CheckBoxIsDriverBySeagull
+            // 
+            this.CheckBoxIsDriverBySeagull.AutoSize = true;
+            this.CheckBoxIsDriverBySeagull.Location = new Point(245, 205);
+            this.CheckBoxIsDriverBySeagull.Name = "CheckBoxIsDriverBySeagull";
+            this.CheckBoxIsDriverBySeagull.Size = new Size(103, 21);
+            this.CheckBoxIsDriverBySeagull.TabIndex = 39;
+            this.CheckBoxIsDriverBySeagull.Text = "Seagull Driver";
+            this.CheckBoxIsDriverBySeagull.UseVisualStyleBackColor = true;
             // 
             // Label6
             // 
             this.Label6.AutoSize = true;
-            this.Label6.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Label6.Location = new System.Drawing.Point(5, 92);
+            this.Label6.Font = new Font("MS UI Gothic", 15.75F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(128)));
+            this.Label6.Location = new Point(5, 92);
             this.Label6.Name = "Label6";
-            this.Label6.Size = new System.Drawing.Size(122, 21);
+            this.Label6.Size = new Size(181, 33);
             this.Label6.TabIndex = 38;
             this.Label6.Text = "注意（強調）";
             // 
             // CkEmphasis
             // 
-            this.CkEmphasis.Location = new System.Drawing.Point(130, 92);
-            this.CkEmphasis.Name = "CkEmphasis";
-            this.CkEmphasis.Size = new System.Drawing.Size(20, 18);
-            this.CkEmphasis.TabIndex = 42;
+            this.CheckBoxIsDesignObjectEmphasis.Location = new Point(130, 92);
+            this.CheckBoxIsDesignObjectEmphasis.Name = "CkEmphasis";
+            this.CheckBoxIsDesignObjectEmphasis.Size = new Size(20, 18);
+            this.CheckBoxIsDesignObjectEmphasis.TabIndex = 42;
             // 
             // Label5
             // 
             this.Label5.AutoSize = true;
-            this.Label5.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Label5.Location = new System.Drawing.Point(5, 203);
+            this.Label5.Font = new Font("MS UI Gothic", 15.75F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(128)));
+            this.Label5.Location = new Point(5, 203);
             this.Label5.Name = "Label5";
-            this.Label5.Size = new System.Drawing.Size(99, 21);
+            this.Label5.Size = new Size(149, 33);
             this.Label5.TabIndex = 35;
             this.Label5.Text = "カット枚数";
             // 
             // Label4
             // 
             this.Label4.AutoSize = true;
-            this.Label4.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Label4.Location = new System.Drawing.Point(5, 175);
+            this.Label4.Font = new Font("MS UI Gothic", 15.75F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(128)));
+            this.Label4.Location = new Point(5, 175);
             this.Label4.Name = "Label4";
-            this.Label4.Size = new System.Drawing.Size(105, 21);
+            this.Label4.Size = new Size(156, 33);
             this.Label4.TabIndex = 32;
             this.Label4.Text = "コピー枚数";
             // 
             // Label3
             // 
             this.Label3.AutoSize = true;
-            this.Label3.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Label3.Location = new System.Drawing.Point(5, 148);
+            this.Label3.Font = new Font("MS UI Gothic", 15.75F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(128)));
+            this.Label3.Location = new Point(5, 148);
             this.Label3.Name = "Label3";
-            this.Label3.Size = new System.Drawing.Size(98, 21);
+            this.Label3.Size = new Size(147, 33);
             this.Label3.TabIndex = 31;
             this.Label3.Text = "連番枚数";
             // 
             // Label2
             // 
             this.Label2.AutoSize = true;
-            this.Label2.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Label2.Location = new System.Drawing.Point(5, 65);
+            this.Label2.Font = new Font("MS UI Gothic", 15.75F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(128)));
+            this.Label2.Location = new Point(5, 65);
             this.Label2.Name = "Label2";
-            this.Label2.Size = new System.Drawing.Size(54, 21);
+            this.Label2.Size = new Size(81, 33);
             this.Label2.TabIndex = 30;
             this.Label2.Text = "備考";
             // 
             // Label1
             // 
             this.Label1.AutoSize = true;
-            this.Label1.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Label1.Location = new System.Drawing.Point(5, 120);
+            this.Label1.Font = new Font("MS UI Gothic", 15.75F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(128)));
+            this.Label1.Location = new Point(5, 120);
             this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(73, 21);
+            this.Label1.Size = new Size(108, 33);
             this.Label1.TabIndex = 29;
             this.Label1.Text = "プリンタ";
             // 
-            // SetValue
+            // ButtonOpenBtwFileAndSetValue
             // 
-            this.SetValue.Enabled = false;
-            this.SetValue.Location = new System.Drawing.Point(5, 231);
-            this.SetValue.Name = "SetValue";
-            this.SetValue.Size = new System.Drawing.Size(75, 23);
-            this.SetValue.TabIndex = 27;
-            this.SetValue.Text = "設定完了";
-            this.SetValue.UseVisualStyleBackColor = true;
-            this.SetValue.Click += new System.EventHandler(this.SetValue_Click);
+            this.ButtonOpenBtwFileAndSetValue.Enabled = false;
+            this.ButtonOpenBtwFileAndSetValue.Location = new Point(5, 231);
+            this.ButtonOpenBtwFileAndSetValue.Name = "ButtonOpenBtwFileAndSetValue";
+            this.ButtonOpenBtwFileAndSetValue.Size = new Size(75, 23);
+            this.ButtonOpenBtwFileAndSetValue.TabIndex = 27;
+            this.ButtonOpenBtwFileAndSetValue.Text = "設定完了";
+            this.ButtonOpenBtwFileAndSetValue.UseVisualStyleBackColor = true;
             // 
-            // ImagePreview
+            // ButtonShowImagePreview
             // 
-            this.ImagePreview.Enabled = false;
-            this.ImagePreview.Location = new System.Drawing.Point(5, 563);
-            this.ImagePreview.Name = "ImagePreview";
-            this.ImagePreview.Size = new System.Drawing.Size(86, 23);
-            this.ImagePreview.TabIndex = 26;
-            this.ImagePreview.Text = "画像プレビュー";
-            this.ImagePreview.UseVisualStyleBackColor = true;
-            this.ImagePreview.Click += new System.EventHandler(this.ImagePreview_Click);
+            this.ButtonShowImagePreview.Enabled = false;
+            this.ButtonShowImagePreview.Location = new Point(5, 563);
+            this.ButtonShowImagePreview.Name = "ButtonShowImagePreview";
+            this.ButtonShowImagePreview.Size = new Size(86, 23);
+            this.ButtonShowImagePreview.TabIndex = 26;
+            this.ButtonShowImagePreview.Text = "画像プレビュー";
+            this.ButtonShowImagePreview.UseVisualStyleBackColor = true;
             // 
-            // PictureBox1
+            // ButtonShowPreviewDialog
             // 
-            this.PictureBox1.Location = new System.Drawing.Point(5, 294);
-            this.PictureBox1.Name = "PictureBox1";
-            this.PictureBox1.Size = new System.Drawing.Size(280, 258);
-            this.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PictureBox1.TabIndex = 25;
-            this.PictureBox1.TabStop = false;
+            this.ButtonShowPreviewDialog.Enabled = false;
+            this.ButtonShowPreviewDialog.Location = new Point(110, 563);
+            this.ButtonShowPreviewDialog.Name = "ButtonShowPreviewDialog";
+            this.ButtonShowPreviewDialog.Size = new Size(75, 23);
+            this.ButtonShowPreviewDialog.TabIndex = 28;
+            this.ButtonShowPreviewDialog.Text = "BTプレビュー";
+            this.ButtonShowPreviewDialog.UseVisualStyleBackColor = true;
             // 
-            // PrinterList
+            // ButtonExportPrintPreview
             // 
-            this.PrinterList.FormattingEnabled = true;
-            this.PrinterList.Location = new System.Drawing.Point(120, 120);
-            this.PrinterList.Name = "PrinterList";
-            this.PrinterList.Size = new System.Drawing.Size(175, 20);
-            this.PrinterList.TabIndex = 24;
+            this.ButtonExportPrintPreview.Enabled = false;
+            this.ButtonExportPrintPreview.Location = new Point(204, 563);
+            this.ButtonExportPrintPreview.Name = "ButtonExportPrintPreview";
+            this.ButtonExportPrintPreview.Size = new Size(120, 23);
+            this.ButtonExportPrintPreview.TabIndex = 46;
+            this.ButtonExportPrintPreview.Text = "プレビューエクスポート";
+            this.ButtonExportPrintPreview.UseVisualStyleBackColor = true;
             // 
-            // SelectCSV
+            // PictureBoxShowPreviewOfBartender
             // 
-            this.SelectCSV.Location = new System.Drawing.Point(248, 35);
-            this.SelectCSV.Name = "SelectCSV";
-            this.SelectCSV.Size = new System.Drawing.Size(56, 23);
-            this.SelectCSV.TabIndex = 23;
-            this.SelectCSV.Text = "CSV";
-            this.SelectCSV.UseVisualStyleBackColor = true;
-            this.SelectCSV.Click += new System.EventHandler(this.SelectCSV_Click);
+            this.PictureBoxShowPreviewOfBartender.Location = new Point(5, 294);
+            this.PictureBoxShowPreviewOfBartender.Name = "PictureBoxShowPreviewOfBartender";
+            this.PictureBoxShowPreviewOfBartender.Size = new Size(280, 258);
+            this.PictureBoxShowPreviewOfBartender.SizeMode = PictureBoxSizeMode.Zoom;
+            this.PictureBoxShowPreviewOfBartender.TabIndex = 25;
+            this.PictureBoxShowPreviewOfBartender.TabStop = false;
             // 
-            // databaseFilePath
+            // ComboBoxPrintersList
             // 
-            this.databaseFilePath.Location = new System.Drawing.Point(5, 37);
-            this.databaseFilePath.Name = "databaseFilePath";
-            this.databaseFilePath.Size = new System.Drawing.Size(222, 19);
-            this.databaseFilePath.TabIndex = 22;
+            this.ComboBoxPrintersList.FormattingEnabled = true;
+            this.ComboBoxPrintersList.Location = new Point(120, 120);
+            this.ComboBoxPrintersList.Name = "ComboBoxPrintersList";
+            this.ComboBoxPrintersList.Size = new Size(175, 20);
+            this.ComboBoxPrintersList.TabIndex = 24;
+            // 
+            // TextBoxBtwFilePath
+            // 
+            this.TextBoxBtwFilePath.Location = new Point(5, 9);
+            this.TextBoxBtwFilePath.Name = "TextBoxBtwFilePath";
+            this.TextBoxBtwFilePath.Size = new Size(222, 19);
+            this.TextBoxBtwFilePath.TabIndex = 40;
+            // 
+            // TextBoxCsvFilePath
+            // 
+            this.TextBoxCsvFilePath.Location = new Point(5, 37);
+            this.TextBoxCsvFilePath.Name = "TextBoxCsvFilePath";
+            this.TextBoxCsvFilePath.Size = new Size(222, 19);
+            this.TextBoxCsvFilePath.TabIndex = 22;
             // 
             // OpenFileDialog1
             // 
             this.OpenFileDialog1.FileName = "OpenFileDialog1";
             // 
-            // BtPreviw
+            // TextBoxNamedSubString
             // 
-            this.BtPreviw.Enabled = false;
-            this.BtPreviw.Location = new System.Drawing.Point(100, 563);
-            this.BtPreviw.Name = "BtPreviw";
-            this.BtPreviw.Size = new System.Drawing.Size(75, 23);
-            this.BtPreviw.TabIndex = 28;
-            this.BtPreviw.Text = "BTプレビュー";
-            this.BtPreviw.UseVisualStyleBackColor = true;
-            this.BtPreviw.Click += new System.EventHandler(this.BtPreviw_Click);
+            this.TextBoxNamedSubString.Location = new Point(120, 65);
+            this.TextBoxNamedSubString.Name = "TextBoxNamedSubString";
+            this.TextBoxNamedSubString.Size = new Size(175, 19);
+            this.TextBoxNamedSubString.TabIndex = 21;
             // 
-            // TextBox1
+            // ButtonPrint
             // 
-            this.TextBox1.Location = new System.Drawing.Point(120, 65);
-            this.TextBox1.Name = "TextBox1";
-            this.TextBox1.Size = new System.Drawing.Size(175, 19);
-            this.TextBox1.TabIndex = 21;
+            this.ButtonPrint.Enabled = false;
+            this.ButtonPrint.Location = new Point(110, 231);
+            this.ButtonPrint.Name = "ButtonPrint";
+            this.ButtonPrint.Size = new Size(75, 23);
+            this.ButtonPrint.TabIndex = 20;
+            this.ButtonPrint.Text = "印刷";
+            this.ButtonPrint.UseVisualStyleBackColor = true;
             // 
-            // ActualPrint
+            // NumericUpDownNumberSerializedLabels
             // 
-            this.ActualPrint.Enabled = false;
-            this.ActualPrint.Location = new System.Drawing.Point(100, 231);
-            this.ActualPrint.Name = "ActualPrint";
-            this.ActualPrint.Size = new System.Drawing.Size(75, 23);
-            this.ActualPrint.TabIndex = 20;
-            this.ActualPrint.Text = "印刷";
-            this.ActualPrint.UseVisualStyleBackColor = true;
-            this.ActualPrint.Click += new System.EventHandler(this.ActualPrint_Click);
-            // 
-            // SelectBTW
-            // 
-            this.SelectBTW.Location = new System.Drawing.Point(248, 7);
-            this.SelectBTW.Name = "SelectBTW";
-            this.SelectBTW.Size = new System.Drawing.Size(56, 23);
-            this.SelectBTW.TabIndex = 41;
-            this.SelectBTW.Text = "BTW";
-            this.SelectBTW.UseVisualStyleBackColor = true;
-            this.SelectBTW.Click += new System.EventHandler(this.SelectBTW_Click);
-            // 
-            // btwFilePath
-            // 
-            this.btwFilePath.Location = new System.Drawing.Point(5, 9);
-            this.btwFilePath.Name = "btwFilePath";
-            this.btwFilePath.Size = new System.Drawing.Size(222, 19);
-            this.btwFilePath.TabIndex = 40;
-            this.btwFilePath.TextChanged += new System.EventHandler(this.btwFilePath_TextChanged);
-            // 
-            // NSL
-            // 
-            this.NSL.Location = new System.Drawing.Point(120, 148);
-            this.NSL.Minimum = new decimal(new int[] {
+            this.NumericUpDownNumberSerializedLabels.Location = new Point(120, 148);
+            this.NumericUpDownNumberSerializedLabels.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.NSL.Name = "NSL";
-            this.NSL.Size = new System.Drawing.Size(120, 19);
-            this.NSL.TabIndex = 43;
-            this.NSL.Value = new decimal(new int[] {
+            this.NumericUpDownNumberSerializedLabels.Name = "NumericUpDownNumberSerializedLabels";
+            this.NumericUpDownNumberSerializedLabels.Size = new Size(120, 19);
+            this.NumericUpDownNumberSerializedLabels.TabIndex = 43;
+            this.NumericUpDownNumberSerializedLabels.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             // 
-            // ICOL
+            // NumericUpDownIdenticalCopiesOfLabel
             // 
-            this.ICOL.Location = new System.Drawing.Point(120, 175);
-            this.ICOL.Minimum = new decimal(new int[] {
+            this.NumericUpDownIdenticalCopiesOfLabel.Location = new Point(120, 175);
+            this.NumericUpDownIdenticalCopiesOfLabel.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.ICOL.Name = "ICOL";
-            this.ICOL.Size = new System.Drawing.Size(120, 19);
-            this.ICOL.TabIndex = 44;
-            this.ICOL.Value = new decimal(new int[] {
+            this.NumericUpDownIdenticalCopiesOfLabel.Name = "NumericUpDownIdenticalCopiesOfLabel";
+            this.NumericUpDownIdenticalCopiesOfLabel.Size = new Size(120, 19);
+            this.NumericUpDownIdenticalCopiesOfLabel.TabIndex = 44;
+            this.NumericUpDownIdenticalCopiesOfLabel.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             // 
-            // cutNum
+            // NumericUpDownCutInterval
             // 
-            this.cutNum.Enabled = false;
-            this.cutNum.Location = new System.Drawing.Point(120, 203);
-            this.cutNum.Minimum = new decimal(new int[] {
+            this.NumericUpDownCutInterval.Enabled = false;
+            this.NumericUpDownCutInterval.Location = new Point(120, 203);
+            this.NumericUpDownCutInterval.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.cutNum.Name = "cutNum";
-            this.cutNum.Size = new System.Drawing.Size(74, 19);
-            this.cutNum.TabIndex = 45;
-            this.cutNum.Value = new decimal(new int[] {
+            this.NumericUpDownCutInterval.Name = "NumericUpDownCutInterval";
+            this.NumericUpDownCutInterval.Size = new Size(74, 19);
+            this.NumericUpDownCutInterval.TabIndex = 45;
+            this.NumericUpDownCutInterval.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -295,39 +303,38 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(364, 610);
-            this.Controls.Add(this.cutNum);
-            this.Controls.Add(this.ICOL);
-            this.Controls.Add(this.NSL);
-            this.Controls.Add(this.SelectBTW);
-            this.Controls.Add(this.btwFilePath);
-            this.Controls.Add(this.CkSeagull);
+            this.AutoScaleDimensions = new SizeF(6F, 12F);
+            this.AutoScaleMode = AutoScaleMode.Font;
+            this.ClientSize = new Size(364, 610);
+            this.Controls.Add(this.ButtonExportPrintPreview);
+            this.Controls.Add(this.NumericUpDownCutInterval);
+            this.Controls.Add(this.NumericUpDownIdenticalCopiesOfLabel);
+            this.Controls.Add(this.NumericUpDownNumberSerializedLabels);
+            this.Controls.Add(this.ButtonSelectBtwFile);
+            this.Controls.Add(this.TextBoxBtwFilePath);
+            this.Controls.Add(this.CheckBoxIsDriverBySeagull);
             this.Controls.Add(this.Label6);
-            this.Controls.Add(this.CkEmphasis);
+            this.Controls.Add(this.CheckBoxIsDesignObjectEmphasis);
             this.Controls.Add(this.Label5);
             this.Controls.Add(this.Label4);
             this.Controls.Add(this.Label3);
             this.Controls.Add(this.Label2);
             this.Controls.Add(this.Label1);
-            this.Controls.Add(this.SetValue);
-            this.Controls.Add(this.ImagePreview);
-            this.Controls.Add(this.PrinterList);
-            this.Controls.Add(this.SelectCSV);
-            this.Controls.Add(this.databaseFilePath);
-            this.Controls.Add(this.BtPreviw);
-            this.Controls.Add(this.TextBox1);
-            this.Controls.Add(this.ActualPrint);
-            this.Controls.Add(this.PictureBox1);
+            this.Controls.Add(this.ButtonOpenBtwFileAndSetValue);
+            this.Controls.Add(this.ButtonShowImagePreview);
+            this.Controls.Add(this.ComboBoxPrintersList);
+            this.Controls.Add(this.ButtonSelectCsvFile);
+            this.Controls.Add(this.TextBoxCsvFilePath);
+            this.Controls.Add(this.ButtonShowPreviewDialog);
+            this.Controls.Add(this.TextBoxNamedSubString);
+            this.Controls.Add(this.ButtonPrint);
+            this.Controls.Add(this.PictureBoxShowPreviewOfBartender);
             this.Name = "Form1";
             this.Text = "SEAGULL SCIENTIFIC  SAMPLE";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NSL)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ICOL)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cutNum)).EndInit();
+            ((ISupportInitialize)(this.PictureBoxShowPreviewOfBartender)).EndInit();
+            ((ISupportInitialize)(this.NumericUpDownNumberSerializedLabels)).EndInit();
+            ((ISupportInitialize)(this.NumericUpDownIdenticalCopiesOfLabel)).EndInit();
+            ((ISupportInitialize)(this.NumericUpDownCutInterval)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -336,30 +343,30 @@
 
 
         #endregion
-
-        internal System.Windows.Forms.CheckBox CkSeagull;
-        internal System.Windows.Forms.Label Label6;
-        internal System.Windows.Forms.CheckBox CkEmphasis;
-        internal System.Windows.Forms.Label Label5;
-        internal System.Windows.Forms.Label Label4;
-        internal System.Windows.Forms.Label Label3;
-        internal System.Windows.Forms.Label Label2;
-        internal System.Windows.Forms.Label Label1;
-        internal System.Windows.Forms.Button SetValue;
-        internal System.Windows.Forms.Button ImagePreview;
-        internal System.Windows.Forms.PictureBox PictureBox1;
-        internal System.Windows.Forms.ComboBox PrinterList;
-        internal System.Windows.Forms.Button SelectCSV;
-        internal System.Windows.Forms.TextBox databaseFilePath;
-        internal System.Windows.Forms.OpenFileDialog OpenFileDialog1;
-        internal System.Windows.Forms.Button BtPreviw;
-        internal System.Windows.Forms.TextBox TextBox1;
-        internal System.Windows.Forms.Button ActualPrint;
-        internal System.Windows.Forms.Button SelectBTW;
-        internal System.Windows.Forms.TextBox btwFilePath;
-        private System.Windows.Forms.NumericUpDown NSL;
-        private System.Windows.Forms.NumericUpDown ICOL;
-        private System.Windows.Forms.NumericUpDown cutNum;
+        internal TextBox TextBoxBtwFilePath;
+        internal TextBox TextBoxCsvFilePath;
+        internal TextBox TextBoxNamedSubString;
+        internal ComboBox ComboBoxPrintersList;
+        internal CheckBox CheckBoxIsDriverBySeagull;
+        internal CheckBox CheckBoxIsDesignObjectEmphasis;
+        private NumericUpDown NumericUpDownNumberSerializedLabels;
+        private NumericUpDown NumericUpDownIdenticalCopiesOfLabel;
+        private NumericUpDown NumericUpDownCutInterval;
+        internal Button ButtonSelectCsvFile;
+        internal Button ButtonSelectBtwFile;
+        internal Button ButtonOpenBtwFileAndSetValue;
+        internal Button ButtonShowImagePreview;
+        internal Button ButtonShowPreviewDialog;
+        internal Button ButtonExportPrintPreview;
+        internal Button ButtonPrint;
+        internal PictureBox PictureBoxShowPreviewOfBartender;
+        internal Label Label5;
+        internal Label Label4;
+        internal Label Label3;
+        internal Label Label2;
+        internal Label Label1;
+        internal Label Label6;
+        internal OpenFileDialog OpenFileDialog1;
     }
 }
 
