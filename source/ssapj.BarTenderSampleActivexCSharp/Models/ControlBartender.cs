@@ -10,7 +10,8 @@ namespace ssapj.BarTenderSampleActivexCSharp.Models
     //btwファイルが想定した状況にないときはCOMExceptionが飛びます
     internal class ControlBartender : IDisposable
     {
-        private readonly Application _bartenderApplication;
+        private Application _bartenderApplication;
+        private int _processIdOfBartenderApplication;
         private Format _bartenderFormat;
         private string _bartenderFormatFilePath;
 
@@ -18,6 +19,7 @@ namespace ssapj.BarTenderSampleActivexCSharp.Models
         public ControlBartender()
         {
             this._bartenderApplication = new Application { VisibleWindows = BtVisibleWindows.btInteractiveDialogs };
+            this._processIdOfBartenderApplication = this._bartenderApplication.ProcessId;
         }
 
         //BarTenderでbtwファイルを開く
@@ -64,7 +66,6 @@ namespace ssapj.BarTenderSampleActivexCSharp.Models
         //IdenticalCopiesOfLabel : コピー数
         public void SetPrintNumbers(int numberSerializedLabels, int identicalCopiesOfLabel)
         {
-            Debug.Write($"{numberSerializedLabels} {identicalCopiesOfLabel}");
             this._bartenderFormat.NumberSerializedLabels = numberSerializedLabels;
             this._bartenderFormat.IdenticalCopiesOfLabel = identicalCopiesOfLabel;
         }
@@ -133,37 +134,47 @@ namespace ssapj.BarTenderSampleActivexCSharp.Models
 
         protected virtual void Dispose(bool disposing)
         {
-            if (!disposedValue)
+            if (this.disposedValue) return;
+            if (disposing)
             {
-                if (disposing)
-                {
-                    // TODO: dispose managed state (managed objects).
-                }
-
-                // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
-                // TODO: set large fields to null.
-
-                this._bartenderApplication.Quit(BtSaveOptions.btDoNotSaveChanges);
-                Marshal.ReleaseComObject(this._bartenderApplication);
-
-                disposedValue = true;
+                // TODO: dispose managed state (managed objects).
             }
+
+            // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
+            // TODO: set large fields to null.
+            if (this._bartenderApplication != null)
+            {
+                try
+                {
+                    using (Process.GetProcessById(this._processIdOfBartenderApplication))
+                    {
+                        this._bartenderApplication.Quit(BtSaveOptions.btDoNotSaveChanges);
+                    }
+                }
+                finally
+                {
+                    Marshal.FinalReleaseComObject(this._bartenderApplication);
+                    this._bartenderApplication = null;
+                }
+            }
+
+            this.disposedValue = true;
         }
 
         // TODO: override a finalizer only if Dispose(bool disposing) above has code to free unmanaged resources.
         ~ControlBartender()
         {
             // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
-            Dispose(false);
+            this.Dispose(false);
         }
 
         // This code added to correctly implement the disposable pattern.
         public void Dispose()
         {
             // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
-            Dispose(true);
+            this.Dispose(true);
             // TODO: uncomment the following line if the finalizer is overridden above.
-            // GC.SuppressFinalize(this);
+            GC.SuppressFinalize(this);
         }
 
         #endregion
